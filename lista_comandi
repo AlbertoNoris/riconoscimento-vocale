@@ -1,0 +1,95 @@
+go door;0101
+go window;0102
+go home;0103
+go home position;0103
+go to door;0101
+go to window;0102
+go to home;0103
+go to home position;0103
+go to the door;0101
+go to the window;0102
+go to the home;0103
+go to the home position;0103
+move door;0101
+move window;0102
+move home;0103
+move home position;0103
+move to door;0101
+move to window;0102
+move to home;0103
+move to home position;0103
+move to the door;0101
+move to the window;0102
+move to the home;0103
+move to the home position;0103
+drive door;0101
+drive window;0102
+drive home;0103
+drive home position;0103
+drive to door;0101
+drive to window;0102
+drive to home;0103
+drive to home position;0103
+drive to the door;0101
+drive to the window;0102
+drive to the home;0103
+drive to the home position;0103
+face right;0201
+face left;0202
+face back;0203
+face X degrees;0204
+face right X degrees;0205
+face left X degrees;0206
+face to right;0201
+face to left;0202
+face to back;0203
+face to X degrees;0204
+face to right X degrees;0205
+face to left X degrees;0206
+face to the right;0201
+face to the left;0202
+face to the back;0203
+face to the X degrees;0204
+face to the right X degrees;0205
+face to the left X degrees;0206
+turn right;0201
+turn left;0202
+turn back;0203
+turn X degrees;0204
+turn right X degrees;0205
+turn left X degrees;0206
+turn to right;0201
+turn to left;0202
+turn to back;0203
+turn to X degrees;0204
+turn to right X degrees;0205
+turn to left X degrees;0206
+turn to the right;0201
+turn to the left;0202
+turn to the back;0203
+turn to the X degrees;0204
+turn to the right X degrees;0205
+turn to the left X degrees;0206
+rotate right;0201
+rotate left;0202
+rotate back;0203
+rotate X degrees;0204
+rotate right X degrees;0205
+rotate left X degrees;0206
+rotate to right;0201
+rotate to left;0202
+rotate to back;0203
+rotate to X degrees;0204
+rotate to right X degrees;0205
+rotate to left X degrees;0206
+rotate to the right;0201
+rotate to the left;0202
+rotate to the back;0203
+rotate to the X degrees;0204
+rotate to the right X degrees;0205
+rotate to the left X degrees;0206
+scan room;0301
+scan the room;0301
+stop;0401
+eight zero three;25
+cirteranteedadeadeaede zero three;25

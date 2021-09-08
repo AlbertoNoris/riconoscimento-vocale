@@ -1,0 +1,53 @@
+<01>
+--action--
+go
+go to
+go to the
+move
+move to
+move to the
+drive
+drive to
+drive to the
+--parameters--
+door;0101
+window;0102
+home;0103
+home position;0103
+<02>
+--action--
+face
+face to
+face to the
+turn
+turn to
+turn to the
+rotate
+rotate to
+rotate to the
+--parameters--
+right;0201
+left;0202
+back;0203
+X degrees;0204
+right X degrees;0205
+left X degrees;0206
+<03>
+--action--
+scan
+scan the
+--parameters--
+room;0301
+<04>
+--action--
+stop;0401
+--parameters--
+<PROVA>
+--action--
+eight
+cirteranteedadeadeaede
+--parameters--
+zero three;25
+<END>
+Sotto questa riga si può scrivere quello che si vuole
+
