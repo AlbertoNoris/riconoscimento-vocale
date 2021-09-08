@@ -4,12 +4,11 @@ This repository contains my bachelor degree's thesis with the title: "Riconoscim
 
 The entire project was designed to be discussed in italian so there may be some cases where google translate might be needed but other than that the code is english based so if you manage to follow the instructions you can test it by speaking english.
 
-These are the steps in order to install it:
 
 # Install
 This is designed to run on Linux 18.04 so having this version should be sufficient but not necessary.
 
-
+These are the steps in order to install it:
 
 1. download these [prebuilt binaries](https://github.com/alphacep/vosk-api/releases/download/v0.3.30/vosk-linux-x86-0.3.30.zip) extract them and put the `libvosk.so` in the /lib folder
 
