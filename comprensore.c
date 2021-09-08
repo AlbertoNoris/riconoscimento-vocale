@@ -76,55 +76,11 @@ int main() {
 
            
         }
-    
-        //printf(a);
-        printf("controllo file\n");
+
+        //printf("controllo file\n");
         sleep(3);
     }
     
-    
-/*
-    VoskModel *model = vosk_model_new("model");
-    VoskRecognizer *recognizer = vosk_recognizer_new(model, 16000.0);
-
-    wavin = fopen("test.wav", "rb"); //assoccio il file al puntatore 
-    fseek(wavin, 44, SEEK_SET); //sposto il puntatore all'inizio del file
-    while (!feof(wavin)) { //continuo fino a che non sono alla fine
-         nread = fread(buf, 1, sizeof(buf), wavin);
-         final = vosk_recognizer_accept_waveform(recognizer, buf, nread);
-         if (final) {
-             temp = vosk_recognizer_result(recognizer);
-             printf("%s\n", temp);
-             // -----------
-             parsed_json = json_tokener_parse(temp);
-             json_object_object_get_ex(parsed_json, "text", &testo);
-             strcpy(comando, json_object_get_string(testo));
-             //printf("RISULTATO JSON PARSER: %s\n", comando);
-             //comanda_robot(comando);
-             // -----------
-
-         } else {
-             printf("%s\n", vosk_recognizer_partial_result(recognizer));
-         }
-    }
-    temp = vosk_recognizer_final_result(recognizer);
-    printf("%s\n", temp);
-    // -----------
-    parsed_json = json_tokener_parse(temp);
-    json_object_object_get_ex(parsed_json, "text", &testo);
-    strcpy(comando, json_object_get_string(testo));
-    printf("RISULTATO JSON PARSER: %s\n", comando);
-    */
-   
-    
-    /*
-    // -----------
-    vosk_recognizer_free(recognizer);
-    vosk_model_free(model);
-    fclose(wavin);
-    json_object_put(parsed_json);
-    */
-    //return 0;
 }
 
 /* controlla se il file è stato modificato */
