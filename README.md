@@ -28,6 +28,7 @@ the program should be up and running and you can test it by saying phrases like 
 If you follow the install section you should have everything needed in order to run the program but one thing that could be interesting to change is the `Model` which is the Neural Net that does the Speech to Text conversion.
 The one provided with the Install section is a nice balance beetwen weight and accuracy but if you want to try other ones go to the [model section of Vosk](https://alphacephei.com/vosk/models), download the one you want to try and replace it with the `Model` folder.
 
-
+# Structure
+The in depth structure of the program is explained inside the thesis but in general microfono.py is responsible for the speech to text and writes what it hears inside the comando document then comprensore.c loads comando and tries to understand if the comand is acceptable or not.
 
 
