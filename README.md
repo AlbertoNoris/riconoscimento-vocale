@@ -1,2 +1,9 @@
 # riconoscimento-vocale
-Codice della mia Tesi di Laurea Triennale: "Riconoscimento vocale per Robot"
+
+This repository contains my bachelor degree's thesis with the title :"Speech recongition for Robots"
+
+this are the steps in order to install it:
+
+
+
+
