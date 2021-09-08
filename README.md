@@ -14,7 +14,7 @@ These are the steps in order to install it:
 
 open the terminal and type these comands
 
-2. `git clone https://github.com/AlbertoNoris/riconoscimento-vocale.git`
+2. `git clone https://github.com/AlbertoNoris/speech-recognition.git`
 
 3. `cd riconoscimento-vocale`
 
