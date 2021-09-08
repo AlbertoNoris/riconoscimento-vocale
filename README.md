@@ -16,7 +16,7 @@ open the terminal and type these comands
 
 2. `git clone https://github.com/AlbertoNoris/speech-recognition.git`
 
-3. `cd riconoscimento-vocale`
+3. `cd speech-recognition`
 
 4. `./comprensore`
 
@@ -24,8 +24,9 @@ open the terminal and type these comands
 
 the program should be up and running and you can test it by saying phrases like "ok robot go to the door" or "ok robot turn fifteen degrees and go to the window"
 
-
-
+# Change Model
+If you follow the install section you should have everything needed in order to run the program but one thing that could be interesting to change is the `Model` which is the Neural Net that does the Speech to Text conversion.
+The one provided with the Install section is a nice balance beetwen weight and accuracy but if you want to try other ones go to the [model section of Vosk](https://alphacephei.com/vosk/models), download the one you want to try and replace it with the `Model` folder.
 
 
 
