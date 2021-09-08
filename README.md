@@ -29,6 +29,6 @@ If you follow the install section you should have everything needed in order to 
 The one provided with the Install section is a nice balance between weight and accuracy but if you want to try other ones go to the [model section of Vosk](https://alphacephei.com/vosk/models), download the one you want to try and replace it with the `Model` folder.
 
 # Structure
-The in depth structure of the program is explained inside the thesis but in general microfono.py is responsible for the speech to text and writes what it hears inside the comando document then comprensore.c loads comando and tries to understand if the command is acceptable or not.
+The in depth structure of the program is explained inside the thesis but in general microfono.py is responsible for the speech to text and writes what it hears inside the comando document then comprensore.c loads comando and tries to understand if the command is acceptable or not based on the commands inside lista_comandi
 
 
