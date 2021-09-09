@@ -1,4 +1,3 @@
-//#include <vosk_api.h>
 #include <stdio.h>
 #include <string.h>
 #include <json-c/json.h>
@@ -47,37 +46,30 @@ int main() {
     int nread, final;
     const char *temp; //temporaneo per il risultato resituito dal modello
     char comando[DIM_MAX_COMANDO] = "ok robot turn one hundred and fourty one degrees and face left twenty six degrees and go to the door";
-    //struct json_object *parsed_json;
-    //struct json_object *testo;
-
+ 
     struct stat file_stat;
     char path[] = "comando";
     stat(path, &file_stat);
-    //int err = stat(path, &file_stat);
     time_t tempoModifica = file_stat.st_mtime;
 
     FILE *F_comando;
 
 
     crea_listacomandi();
-    //comanda_robot(comando);
 
     while(1){
         if(file_is_modified(path, tempoModifica)){
+
             stat(path, &file_stat);
             tempoModifica = file_stat.st_mtime;
             printf("FILE MODIFICATO\n");
             F_comando = fopen(path, "r");
             fgets(comando, DIM_MAX_COMANDO, F_comando);
             printf("%s\n", comando);
-            //comando[strlen(comando)-1] = '\0';
             comanda_robot(comando);
             fclose(F_comando);
 
-           
         }
-
-        //printf("controllo file\n");
         sleep(3);
     }
     
@@ -87,10 +79,12 @@ int main() {
 int file_is_modified(const char *path, time_t oldMTime) {
     struct stat file_stat;
     int err = stat(path, &file_stat);
-    if (err != 0) {
+    
+    //if (err != 0) {
         //perror(" [file_is_modified] stat");
         //exit(errno);
-    }
+    //}
+
     return file_stat.st_mtime > oldMTime;
 }
 
@@ -307,18 +301,15 @@ void decifra_e_invia_comando(char *token){
             } else {
                  //printf("X nel comando \n");
                  strcpy(temp2, comando_permesso);
-                 //codice_comando = (codice_comando*1000 + confronto_comando_X_dizionario(comando_sentito_senza_hotword, comando_permesso));
                  X = confronto_comando_X_dizionario(comando_sentito_senza_hotword, comando_permesso);
                  if(X != -1){
                      invia_codice(codice_comando*1000+X);
                      break;
                  } 
-                //controllo con X nel comando
+                
             }
-
-            
             //continua ciclo while
-        fgets(comando_permesso, DIM_MAX_COMANDO, lista_comandi);
+            fgets(comando_permesso, DIM_MAX_COMANDO, lista_comandi);
         }
         fseek(lista_comandi, 0, SEEK_SET);
     
@@ -345,11 +336,6 @@ int confronto_comando_X_dizionario(char *comando_sentito_senza_hotword,char *com
     strcpy(dizionario, comando_permesso); //inizializzazione di variabili temporanee per tokenizzare quelle in ingresso
     strcpy(comando, comando_sentito_senza_hotword); //inizializzazione di variabili temporanee per tokenizzare quelle in ingresso
     strcpy(temp_cm, comando_sentito_senza_hotword);
-    //rest_d = dizionario;
-    //rest_c = comando;
-
-    //printf("dizionario: %s\n",dizionario);
-    //printf("comando: %s\n",comando);
 
     token_dizionario = strtok_r(dizionario, " ", &rest_d);
     token_comando = strtok_r(comando, " ", &rest_c);
@@ -376,8 +362,7 @@ int confronto_comando_X_dizionario(char *comando_sentito_senza_hotword,char *com
     token_comando = strtok_r(temp_cm, " ", &rest_cm);
     //printf("Token  dizionario: %s\n",token_dizionario);
     //printf("Token  comando: %s\n",token_comando);
-    //rest_c = &temp_cm;
-    //token_comando = strtok_r(comando, " ", &rest_c); //resetto il tokenizer del comando
+
     if(numero_corrispondente == -1) {
         //le parole corrispondenti alla parte X non sono in realtà un numero
         return -1;
@@ -394,7 +379,6 @@ int confronto_comando_X_dizionario(char *comando_sentito_senza_hotword,char *com
                 token_comando = strtok_r(NULL, " ", &rest_cm);
                 if(token_comando == NULL)
                     return -1;
-                
             }
 
             while(token_comando != NULL || token_dizionario != NULL){
@@ -405,7 +389,6 @@ int confronto_comando_X_dizionario(char *comando_sentito_senza_hotword,char *com
                 token_comando = strtok_r(NULL, " ", &rest_cm);
                 token_dizionario = strtok_r(NULL, " ", &rest_d);
             }
-
             return numero_corrispondente;
         }
         
@@ -449,8 +432,6 @@ int turn_X_into_int(char *token_dopo_la_X, char *token_c, char *r_c){
             numero_int = atoi(token_numero_str);
             return numero_int;
         }
-            
-        
     }
 
     fclose(numbers);
@@ -482,7 +463,6 @@ int get_numero_comandi_innestati(char *comando){
 void distributore_comandi_innestati(char *comando_singolo, char *originale, int numero_comando_da_generare, int numero_comandi_innestati){
     
     char* token = strtok(originale, " ");
-    //int temp = 1;
     //printf("%s\n", originale);
     if(numero_comandi_innestati != 1){
         comando_singolo[0] = '\0'; //elimino il contenuto del comando singolo
@@ -506,9 +486,6 @@ void distributore_comandi_innestati(char *comando_singolo, char *originale, int 
                     }
                     token = strtok(NULL, " ");
                 }
-                //token = strtok(NULL, " ");
-                
-
 
             } else if(i > numero_comando_da_generare){
                 break;
@@ -523,8 +500,6 @@ void distributore_comandi_innestati(char *comando_singolo, char *originale, int 
 /* prende una stringa in ingresso e restituisce il numero all'interno */
 int estrai_codice(char *comando){
 
-    //MODIFICATO// FORSE NON LO MODIFICO
-    //Aggiungi la ricerca della X
     //Modo per perstituire solo il codice per il  comando sentito e modo per sentire il codice e quello detto nella frase.
 
 	int init_size = strlen(comando);
@@ -544,7 +519,6 @@ void invia_codice(int codice){
 /* Prende in ingresso la posizione della hotword (sotto forma di token) e restituisce il comando sentito dopo la hotword */ 
 void ricostruisci_comando(char* comando, char* token){
     int contatore = 0;
-    //char comando_ricostruito[DIM_MAX_COMANDO];
     while(token != NULL){
         //printf("Token: %s\n", token);
         if(contatore != 0) strcat(comando, " ");
