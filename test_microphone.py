@@ -28,6 +28,7 @@ def removeFluff(text):
     text.partition("text")[2]
     print("rimosso" + text)
 
+# Inizializzazione della Libreria con Output di eventuali errori di inizializzazione
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument(
     '-l', '--list-devices', action='store_true',
@@ -80,21 +81,22 @@ try:
 
             rec = vosk.KaldiRecognizer(model, args.samplerate)
             
-            
+            #Ciclo che ascolta il flusso di dati in ingresso dal micorofono
             while True:
                 
                 data = q.get()
+
                 if rec.AcceptWaveform(data):
                     file = open("comando", "w")
-                    """Ottengo il testo sentito"""
+                    #Ottengo il testo sentito
                     x = rec.Result()
                     y = x[14 : len(x)-3]
                     print(y)
-                    """Scrivo il testo su file"""
+                    #Scrivo il testo su file
                     file.write(y)
                     file.close()
                 else:
-                    """print(rec.PartialResult()) """
+                    """print(rec.PartialResult())"""
                 if dump_fn is not None:
                     dump_fn.write(data)
                 
