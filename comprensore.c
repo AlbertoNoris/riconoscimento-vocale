@@ -268,25 +268,29 @@ void decifra_e_invia_comando(char *token){
     char temp2[DIM_MAX_COMANDO];
     bool flag_X_nel_comando = false;
     int X;
-    
-
     char divisore[] = DIVISORE;
     FILE *lista_comandi = fopen("lista_comandi","r");
+
+    /* ricostruisci il comando a partire dal token */
     comando_sentito_senza_hotword[0] = '\0';
     ricostruisci_comando(comando_sentito_senza_hotword, token);
     strcpy(originale, comando_sentito_senza_hotword);    
 
-    int numero_comandi_innestati = get_numero_comandi_innestati(originale);
+    /* conta il numero di comandi innestati all'interno del comando */
+    int numero_comandi_innestati = get_numero_comandi_innestati(originale); //conta quanti comandi ci sono all'interno del comando. Il criterio di divesione dei comandi è la presenza della parola "and"
     //printf("%s\n",comando_sentito_senza_hotword);
     strcpy(originale, comando_sentito_senza_hotword);
     strcpy(temp, comando_sentito_senza_hotword);
 
+    /* effettuo l'analisi per ogni comando innestato */
     for(int i = 1; i <= numero_comandi_innestati; i++){
         
+        //carico in comando_sentito_senza_hotword un comando innestato
         strcpy(originale, temp);
         distributore_comandi_innestati(comando_sentito_senza_hotword, originale, i, numero_comandi_innestati);
         printf("COMANDO DISTRIBUITO : %s\n",comando_sentito_senza_hotword);
         fgets(comando_permesso, DIM_MAX_COMANDO, lista_comandi);
+        
         while(!feof(lista_comandi)){
             codice_comando = estrai_codice(comando_permesso);
 
